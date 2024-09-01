@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Çözüm Öğeleri", "Çözüm Öğeleri", "{0EEDAA6A-EFE1-4562-A2CA-E90F4271E3D3}"
+	ProjectSection(SolutionItems) = preProject
+		ReadME.txt = ReadME.txt
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotCat.Model", "HotCat.Model\HotCat.Model.csproj", "{00F29D7D-CFE8-4915-B4DA-9F7F23B9A79D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotCat.DAL", "HotCat.DAL\HotCat.DAL.csproj", "{20824C32-2363-49F1-BB0F-2EE140C89329}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00F29D7D-CFE8-4915-B4DA-9F7F23B9A79D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00F29D7D-CFE8-4915-B4DA-9F7F23B9A79D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00F29D7D-CFE8-4915-B4DA-9F7F23B9A79D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00F29D7D-CFE8-4915-B4DA-9F7F23B9A79D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20824C32-2363-49F1-BB0F-2EE140C89329}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20824C32-2363-49F1-BB0F-2EE140C89329}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20824C32-2363-49F1-BB0F-2EE140C89329}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20824C32-2363-49F1-BB0F-2EE140C89329}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E4B603BB-5C01-4AD0-9735-C4409D14F93B}
+	EndGlobalSection
+EndGlobal
