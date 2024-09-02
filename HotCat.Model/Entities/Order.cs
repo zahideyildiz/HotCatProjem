@@ -21,6 +21,6 @@ namespace HotCat.Model.Entities
  
         public Guid? AppUserId { get; set; }//Kullanıcı ID
 
-        public virtual AppUser AppUser { get; set; } // Müşteriye ait bilgiler
+        public virtual AppUser? AppUser { get; set; } // Müşteriye ait bilgiler
     }
 }

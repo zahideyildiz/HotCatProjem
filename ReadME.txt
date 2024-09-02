@@ -12,7 +12,6 @@
           - Product
           - Supplier
 
-
        -Enums: tablolarda kullanýlacak sabitleri temsil eder.
        -Interfaces: Bütün classlara öncülük edecek özellikleri barýndýrýr.
 
@@ -22,6 +21,15 @@
 
     - BLL (Business Logic Layer): Ýþ mantýðý katmaný olarak kullanýlacaktýr. 
     Kullanýcýnýn talep ettiði iþlemler ilk olarak bu katman tarafýndan karþýlanacak. Repository ve Service bu katman içerisinde oluþturulacak.
+          --Repositories
+              --Abstracts
+                  --Base Abstracts
+                      -IRepository: Bu interface bütün iþlemlere öncülük edecek metotlarýn kurallarýný barýndýrmaktadýr. (CRUD) Interface dýþarýdan bir T alýr.
+          --Concretes
+			--BaseConcrete
+				--BaseRepository: IRepository'den miras alara eylemleri (metotlarý) somut hale dönüþtüren class.. Dýaþrýdan bir T alýr
+
+	Yukarýdaki tanýmlamalarda bulunan T tipleri Ayrý bir servis oluþturulacak. Bu kurallarý bünyesine alýr. Bu kurallara göre spesifik eylemleri gerçekleþtirir. Örneðin CategoryService'de gerçekleþtirildiði gibi. (Bknz. CategoryService)
 
     - UI (User Interface): Sunum katmanýný temsil eder. MVC projesi bu katman içerisinde oluþturulacak. 
        - MVC projesi bu katman içerisinde oluþturulacak.

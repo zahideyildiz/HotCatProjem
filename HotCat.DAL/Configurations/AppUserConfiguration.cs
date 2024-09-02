@@ -52,10 +52,6 @@ namespace HotCat.DAL.Configurations
                 .HasForeignKey(o => o.AppUserId);
 
 
-            //builder.HasMany(u => u.UserRoles)
-            //    .WithOne(ur => ur.User)
-            //    .HasForeignKey(ur => ur.UserId);
-
         }
 
         //public List<AppUser> SeedAppUserData()

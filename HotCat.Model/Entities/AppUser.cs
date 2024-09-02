@@ -16,6 +16,7 @@ namespace HotCat.Model.Entities
 
         // Mapping 
         public virtual List<Order> Orders { get; set; } // Kullanıcının verdiği siparişler
-        public virtual List<AppUserRole> UserRoles { get; set; } = new List<AppUserRole>();  // Kullanıcının sahip olduğu roller
+
+        //public virtual List<AppUserRole> UserRoles { get; set; } = new List<AppUserRole>();  // Kullanıcının sahip olduğu roller
     }
 }
