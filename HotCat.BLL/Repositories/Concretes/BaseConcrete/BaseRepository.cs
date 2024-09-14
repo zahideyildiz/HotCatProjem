@@ -2,11 +2,6 @@
 using HotCat.DAL.Context;
 using HotCat.Model.Base;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HotCat.BLL.Repositories.Concretes.BaseConcrete
 {
@@ -69,6 +64,13 @@ namespace HotCat.BLL.Repositories.Concretes.BaseConcrete
                     await _context.SaveChangesAsync();
                     result = "Veri Güncellendi";
 
+                    break;
+
+                case Model.Enums.DataStatus.INSERTED:
+                    entity.Status = Model.Enums.DataStatus.UPDATED;
+                    _context.Entry(entity).State = EntityState.Modified;
+                    await _context.SaveChangesAsync();
+                    result = "Veri Güncellendi";
                     break;
                 case Model.Enums.DataStatus.UPDATED:
                     entity.Status = Model.Enums.DataStatus.UPDATED;

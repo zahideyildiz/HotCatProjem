@@ -19,7 +19,7 @@ namespace HotCatCafe.MVC.Controllers
 
             var categories = _categoryService.GetAllCategories();
 
-            return View();
+            return View(categories);
         }
     }
 }

@@ -1,0 +1,51 @@
+﻿@model List<ProductViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<h1>Index</h1>
+<table>
+    <tr>
+        <th>Image</th>
+        <th>ID</th>
+        <th>ProductName</th>
+        <th>UnitPrice</th>
+        <th>Stock</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="~/images/@item.ImagePath" />
+            </td>
+            <td>@item.ProductId</td>
+            <td>@item.ProductName</td>
+            <td>@item.UnitPrice</td>
+            <td>@item.UnitsInStock</td>
+            <td>
+
+            <td>
+                @switch (item.Status)
+                {
+                    case HotCat.Model.Enums.DataStatus.DELETED:
+                        <span>Silinmiş</span>
+                        break;
+                    case HotCat.Model.Enums.DataStatus.UPDATED:
+                        <span>Güncellenmiş</span>
+                        break;
+                    case HotCat.Model.Enums.DataStatus.INSERTED:
+                        <span>Eklendi</span>
+                        break;
+                }
+            </td>
+            <td>
+                <a asp-action="Update" asp-controller="Product" asp-route-id="@item.ProductId">Update</a>
+                <a asp-action="Delete" asp-area="Administrator" asp-controller="Product" asp-route-id="@item.ProductId">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+

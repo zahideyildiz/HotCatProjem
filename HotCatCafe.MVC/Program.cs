@@ -13,7 +13,7 @@ builder.Services.AddControllersWithViews();
 //Dependency Injection Services
 
 //AddDbContext
-builder.Services.AddDbContext<HotCatContext>(options => options.UseSqlServer("server=DESKTOP-JSABNAD\\SQLEXPRESS; database=HotCatProjem; Trusted_Connection=True;TrustServerCertificate=true"));
+builder.Services.AddDbContext<HotCatContext>(options => options.UseSqlServer("server=DESKTOP-JSABNAD\\SQLEXPRESS; database=HotCatProjem; Trusted_Connection=True;TrustServerCertificate=true" , b => b.MigrationsAssembly("HotCatCafe.MVC")));
 
 //Repository Services
 
@@ -21,6 +21,7 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
 
 //Entity Services
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 
 
@@ -50,8 +51,23 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.UseEndpoints(endpoints =>
+{
+
+    endpoints.MapControllerRoute(
+      name: "areas",
+      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    );
+
+    endpoints.MapControllerRoute(
+      name: "default",
+      pattern: "{controller=Home}/{action=Index}/{id?}"
+);
+
+});
+
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
