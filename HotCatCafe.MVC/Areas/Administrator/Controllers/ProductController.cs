@@ -2,12 +2,15 @@
 using HotCat.BLL.ViewModels.CategoryViewModels;
 using HotCat.BLL.ViewModels.ProductViewModels;
 using HotCat.Model.Entities;
+using HotCatCafe.Common.ImageHelpers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HotCatCafe.MVC.Areas.Administrator.Controllers
 {
     [Area("Administrator")]
+    [Authorize]
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
@@ -28,7 +31,8 @@ namespace HotCatCafe.MVC.Areas.Administrator.Controllers
                 UnitPrice = x.UnitPrice,
                 UnitsInStock = x.UnitsInStock,
                 CategoryId = x.CategoryId,
-                Status = (HotCat.Model.Enums.DataStatus)x.Status
+                Status = (HotCat.Model.Enums.DataStatus)x.Status,
+                ImagePath = x.ImagePath
             }).ToList();    
 
             return View(products);
@@ -54,23 +58,44 @@ namespace HotCatCafe.MVC.Areas.Administrator.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(ProductViewModel productViewModel) 
+        public async Task<IActionResult> Create(ProductViewModel productViewModel, IFormFile productImage) 
         {
             if(ModelState.IsValid)
             {
-                Product product = new Product
+                var ImageEditResult = ImageHelper.Upload(productImage.FileName);
+
+                if(ImageEditResult == "0")
                 {
-                    ID = productViewModel.ProductId,
-                    ProductName = productViewModel.ProductName,
-                    UnitPrice = productViewModel.UnitPrice,
-                    UnitsInStock= productViewModel.UnitsInStock,
-                    CategoryId = productViewModel.CategoryId,
-                    Status = (HotCat.Model.Enums.ProductStatus)productViewModel.Status
-                };
+                    TempData["Error"] = "Görsel izin verilen formatta değil!";
+                    return View();  
+                }
+                else
+                {
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\products", ImageEditResult);
 
-                var result = await _productService.CreateProductAsync(product);
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        productImage.CopyToAsync(stream);
+                    }
 
-                return RedirectToAction("Index" , "Home");
+
+                    Product product = new Product
+                    {
+                        ID = productViewModel.ProductId,
+                        ProductName = productViewModel.ProductName,
+                        UnitPrice = productViewModel.UnitPrice,
+                        UnitsInStock = productViewModel.UnitsInStock,
+                        CategoryId = productViewModel.CategoryId,
+                        Status = (HotCat.Model.Enums.ProductStatus)productViewModel.Status,
+                        ImagePath = ImageEditResult
+                    };
+
+                    var result = await _productService.CreateProductAsync(product);
+
+                    return RedirectToAction("Index", "Home");
+                }
+
+
 
             }
             else

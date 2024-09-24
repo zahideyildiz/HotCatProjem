@@ -25,6 +25,9 @@ namespace HotCat.BLL.ViewModels.ProductViewModels
         [Display(Name = "Ürün Görsel")]
         public string? ImagePath { get; set; }
 
+        [Display(Name = "Aktif")]
+        public bool IsActive { get; set; }
+
         [Display(Name = "Durum")]
         public DataStatus Status { get; set; }
 

@@ -9,7 +9,9 @@
   <ItemGroup>
     <ProjectReference Include="..\HotCat.BLL\HotCat.BLL.csproj" />
     <ProjectReference Include="..\HotCat.DAL\HotCat.DAL.csproj" />
+    <ProjectReference Include="..\HotCat.IOC\HotCat.IOC.csproj" />
     <ProjectReference Include="..\HotCat.Model\HotCat.Model.csproj" />
+    <ProjectReference Include="..\HotCatCafe.Common\HotCatCafe.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +30,8 @@
   <ItemGroup>
     <Folder Include="Areas\Administrator\Data\" />
     <Folder Include="Areas\Administrator\Models\" />
+    <Folder Include="wwwroot\images\users\" />
+    <Folder Include="wwwroot\images\products\" />
   </ItemGroup>
 
 </Project>

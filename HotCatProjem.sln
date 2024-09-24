@@ -12,11 +12,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotCat.Model", "HotCat.Mode
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotCat.DAL", "HotCat.DAL\HotCat.DAL.csproj", "{20824C32-2363-49F1-BB0F-2EE140C89329}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotCat.BLL", "HotCat.BLL\HotCat.BLL.csproj", "{5AF13453-8484-4270-BDC5-83B4650712B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotCat.BLL", "HotCat.BLL\HotCat.BLL.csproj", "{5AF13453-8484-4270-BDC5-83B4650712B1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{903844B1-E4B1-497A-BD72-A92CE58EDF6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotCatCafe.MVC", "HotCatCafe.MVC\HotCatCafe.MVC.csproj", "{EA3B5C03-A25A-42DE-B872-480EB071169D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotCatCafe.MVC", "HotCatCafe.MVC\HotCatCafe.MVC.csproj", "{EA3B5C03-A25A-42DE-B872-480EB071169D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotCatCafe.Common", "HotCatCafe.Common\HotCatCafe.Common.csproj", "{C413B74C-208D-4AC7-8757-860599B9907E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotCat.IOC", "HotCat.IOC\HotCat.IOC.csproj", "{25C81E06-B5F2-459A-AD3A-48EC3572C0AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +44,14 @@ Global
 		{EA3B5C03-A25A-42DE-B872-480EB071169D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA3B5C03-A25A-42DE-B872-480EB071169D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA3B5C03-A25A-42DE-B872-480EB071169D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C413B74C-208D-4AC7-8757-860599B9907E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C413B74C-208D-4AC7-8757-860599B9907E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C413B74C-208D-4AC7-8757-860599B9907E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C413B74C-208D-4AC7-8757-860599B9907E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25C81E06-B5F2-459A-AD3A-48EC3572C0AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25C81E06-B5F2-459A-AD3A-48EC3572C0AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25C81E06-B5F2-459A-AD3A-48EC3572C0AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25C81E06-B5F2-459A-AD3A-48EC3572C0AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

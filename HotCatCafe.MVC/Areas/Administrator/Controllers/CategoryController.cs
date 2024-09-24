@@ -1,11 +1,13 @@
 ﻿using HotCat.BLL.Repositories.Abstracts;
 using HotCat.BLL.ViewModels.CategoryViewModels;
 using HotCat.Model.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotCatCafe.MVC.Areas.Administrator.Controllers
 {
     [Area("Administrator")]
+    //[Authorize]
     public class CategoryController : Controller
     {
         private readonly ICategoryService _categoryService;

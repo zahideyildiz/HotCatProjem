@@ -5,23 +5,27 @@
 }
 
 <h1>Create</h1>
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <div>
         <label asp-for="ProductName"></label>
-        <input type="text" asp-for="ProductName" />
+        <input class="form-control" type="text" asp-for="ProductName" />
     </div>
     <div>
         <label asp-for="UnitPrice"></label>
-        <input type="number" asp-for="UnitPrice" />
+        <input class="form-control" type="number" asp-for="UnitPrice" />
     </div>
     <div>
         <label asp-for="UnitsInStock"></label>
-        <input type="number" asp-for="UnitsInStock" />
+        <input class="form-control" type="number" asp-for="UnitsInStock" />
     </div>
     <div>
-        <select asp-items="@ViewBag.CategoryListItem" asp-for="CategoryId">
+        <select class="form-control" asp-items="@ViewBag.CategoryListItem" asp-for="CategoryId">
             <option selected="" disabled>Select Category</option>
         </select>
     </div>
-    <button type="submit">Oluştur</button>
+    <div>
+        <input class="form-control" type="file" name="productImage" />
+    </div>
+
+    <button class="btn btn-success" type="submit">Oluştur</button>
 </form>

@@ -10,6 +10,8 @@ namespace HotCat.DAL.Configurations
     {
         public void Configure(EntityTypeBuilder<AppUser> builder)
         {
+            builder.Property(x => x.Address).IsRequired(false);
+            builder.Property(x =>x.BirthDate).IsRequired(false);
 
             builder.HasKey(u => u.Id);
 

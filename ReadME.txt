@@ -35,3 +35,10 @@
        - MVC projesi bu katman içerisinde oluþturulacak.
        - Console App
        - WebApi
+
+    -HotCatCommon: Ortak katman. Görsel ekleme, ip adresi alma gibi iþlemler barýndýracak. Ýlerleyen etaplarda projenin daha esnek olabilmesi için her bir katmanda ortak olarak kullanýlacak iþlemler/yapýlar bu katmanda yer almaktadýrlar. 
+       --ImageHelper: Ýçerisinde bulunan static metot vasýtasýyla dýþarýdan iletilen dosyanýn bir görsel olup olmadýðýný kontrol edilmesinnin ardýndan bu görselin projeye dahil edilmesini gerçekleþtirir.
+
+#SMTP Ayarlarý
+Email: hotcatcafe@hotmail.com
+Pass: Cafeprojesi.123
