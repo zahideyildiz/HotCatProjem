@@ -10,7 +10,7 @@ namespace HotCat.DAL.Configurations
         {
 
             builder.Ignore(x => x.ID);
-            builder.HasKey(x => new { x.ProductId, x.OrderId });
+            builder.HasKey(x => new { x.ProductId, x.OrderId }); // Yeni id
             builder.Property(x => x.Quantity).IsRequired();
             builder.Property(od => od.UnitPrice); // UnitPrice alanı için veri tipi ve uzunluk belirlendi
 

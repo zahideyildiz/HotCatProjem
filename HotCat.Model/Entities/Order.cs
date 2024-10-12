@@ -9,13 +9,20 @@ namespace HotCat.Model.Entities
 {
     public class Order:BaseEntity
     {
-        //Lazy Loading (Tembel Yükleme) : Nesnelerin gerektiği zaman yüklenmesini sağlar.
+        //Not: Lazy Loading (Tembel Yükleme) nesnelerin gerektiği zaman yüklenmesini sağlar.
+
+        public Order()  
+        {
+            OrderDetails = new List<OrderDetail>();
+        }
+
 
         public DateTime? OrderDate { get; set; } = DateTime.Now;// Orderdate oluşturulurken şu anki tarihi alır
         public decimal? TotalAmount { get; set; }
-        public string? CustomerName { get; set; }// Müşteri adı
+        
+        //public string? CustomerName { get; set; }// Müşteri adı
 
-        public int? DiscountId { get; set; }
+        //public int? DiscountId { get; set; }
 
         public virtual List<OrderDetail>? OrderDetails { get; set; } // Sipariş detayları
  

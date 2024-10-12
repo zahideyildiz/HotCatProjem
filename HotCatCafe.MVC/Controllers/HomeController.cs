@@ -76,7 +76,7 @@ namespace HotCatCafe.MVC.Controllers
 
                     string body = $"Merhaba {registerViewModel.UserName} kayıt olduğunuz için teşekkürler. Hesabınızı aktif hale getirmek için lütfen linke tıklayınız. {confirmationLink}";
 
-                    //todo: konfirm maili gönderilecek
+                    
                     EmailSender.SendEmail(registerViewModel.Email, "Aktivasyon Maili", body);
 
 

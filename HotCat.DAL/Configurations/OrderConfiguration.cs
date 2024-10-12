@@ -21,9 +21,6 @@ namespace HotCat.DAL.Configurations
             .HasColumnType("decimal(18,2)")
             .IsRequired(false);  // Decimal alan türü ve hassasiyeti
 
-            builder.Property(o => o.CustomerName)
-                   .IsRequired()
-                   .HasMaxLength(100);
 
 
             // Relationships configuration
@@ -55,8 +52,8 @@ namespace HotCat.DAL.Configurations
                 {
                     ID = i,
                     OrderDate = faker.Date.Past(1),
-                    TotalAmount = decimal.Parse(faker.Commerce.Price(10, 500)), // Ensure amount range
-                    CustomerName = faker.Person.FullName,
+                    TotalAmount = decimal.Parse(faker.Commerce.Price(10, 500)) // Ensure amount range
+                    
                 };
 
                 orders.Add(order);

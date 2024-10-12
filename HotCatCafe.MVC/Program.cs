@@ -36,6 +36,8 @@ builder.Services.AddRepositoryService();
 
 builder.Services.AddIdentityService();
 
+//Session
+
 
 
 var app = builder.Build();
@@ -52,6 +54,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+//session
 
 app.UseAuthorization(); //yetkilendirme
 //app.UseAuthentication(); //kimlik yönetimi
