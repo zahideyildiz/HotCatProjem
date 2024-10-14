@@ -1,4 +1,5 @@
 ﻿using HotCat.DAL.Configurations;
+using HotCat.Model.Base;
 using HotCat.Model.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +30,34 @@ namespace HotCat.DAL.Context
         //OrderDetail DbSet
         public DbSet<OrderDetail> OrderDetails { get; set; }
 
+        //Savechanges değişiklikleri kaydet demek. Burada kullanma amacımız da yapılan değişiklikleri veritabanına aktarmak.
+        public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                var modifiedEntries = ChangeTracker.Entries().Where(x => x.State == EntityState.Modified);
+
+                foreach (var item in modifiedEntries)
+                {
+
+                    var entityRepository = item.Entity as BaseEntity;
+
+                    if (item.State == EntityState.Modified)
+                    {
+                        entityRepository.UpdatedDate = DateTime.Now;
+                        entityRepository.UpdatedIpAddress = "";
+                        entityRepository.UpdatedComputerName = System.Environment.MachineName;
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+        }
 
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

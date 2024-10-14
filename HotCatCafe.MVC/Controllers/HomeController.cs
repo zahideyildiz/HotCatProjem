@@ -17,13 +17,17 @@ namespace HotCatCafe.MVC.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly IProductService _productService;
+        private readonly IOrderService _orderService;
+        private readonly IOrderDetailService _orderDetailService;
 
-        public HomeController(ILogger<HomeController> logger, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IProductService productService)
+        public HomeController(ILogger<HomeController> logger, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IProductService productService, IOrderService orderService, IOrderDetailService orderDetailService)
         {
             _logger = logger;
             _userManager = userManager;
             _signInManager = signInManager;
             _productService = productService;
+            _orderService = orderService;
+            _orderDetailService = orderDetailService;
         }
 
         public IActionResult Index()
