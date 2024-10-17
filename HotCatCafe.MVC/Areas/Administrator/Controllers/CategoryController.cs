@@ -107,6 +107,64 @@ namespace HotCatCafe.MVC.Areas.Administrator.Controllers
             
         }
 
+        public IActionResult Delete(int id)
+        {
+            var category = _categoryService.GetCategoryById(id);
+            if(category == null)
+            {
+               return NotFound();
+            }
+            var categoryViewModel = new CategoryViewModel
+            {
+                Id = category.ID,
+                CategoryName = category.CategoryName,
+                Description = category.Description
+            };
+            return View(categoryViewModel);
+
+        }
+
+        [HttpPost]
+
+        public IActionResult Delete(CategoryViewModel categoryViewModel)
+        {
+            var categoryDelete = _categoryService.GetCategoryById(categoryViewModel.Id);
+            if(categoryDelete == null)
+            {
+                return NotFound();
+            }
+            _categoryService.DeleteCategory(categoryDelete);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Active()
+        {
+            var categories = _categoryService.GetActiveCategories().OrderByDescending(x => x.ID).Select(x => new CategoryViewModel
+            {
+                Id =x.ID,
+                CategoryName = x.CategoryName,
+                Description = x.Description,
+                IsActive = x.IsActive,
+                Status = x.Status
+
+            }).ToList();
+            return View(categories);
+        }
+
+        public IActionResult Passive()
+        {
+            var categories = _categoryService.GetPassiveCategories().OrderByDescending(x => x.ID).Select(x => new CategoryViewModel
+            {
+                Id = x.ID,
+                CategoryName = x.CategoryName,
+                Description = x.Description,
+                IsActive = x.IsActive,
+                Status = x.Status
+            }).ToList();
+            return View(categories);
+        }
+
+
         //todo : 27 mayıs ilk ders kayıtından details ekle
     }
 }

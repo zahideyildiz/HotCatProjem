@@ -13,6 +13,11 @@
         <th>Is Active</th>
         <th>Status</th>
         <th></th>
+        <th>
+            <a href="/Administrator/Category/Create" class="btn btn-danger btn-sm">Kategori Ekle</a>
+            <a href="/Administrator/Category/Active" class="btn btn-danger btn-sm">Aktif Kategoriler</a>
+            <a href="/Administrator/Category/Passive" class="btn btn-danger btn-sm">Pasif Kategoriler</a>
+        </th>
     </tr>
     @foreach (var item in Model)
     {
@@ -50,8 +55,9 @@
                 }
             </td>
             <td>
-                <a asp-action="Update" asp-controller="Category" asp-route-id ="@item.Id">Update</a>
-                <a asp-action="Delete" asp-area="Administrator" asp-controller="Category" asp-route-id="@item.Id">Delete</a>
+
+                <a asp-action="Update" asp-controller="Category" asp-route-id ="@item.Id" class="btn btn-primary">Update</a>
+                <a asp-action="Delete" asp-area="Administrator" asp-controller="Category" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
             </td>
         </tr>
     }

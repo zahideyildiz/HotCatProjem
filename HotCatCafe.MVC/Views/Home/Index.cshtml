@@ -23,7 +23,7 @@ else if (TempData["Error"] != null)
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h3>Son Eklenen Ürünler</h3>
+                <h3> Ürünler</h3>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -40,7 +40,7 @@ else if (TempData["Error"] != null)
                                         <h5>@p.UnitPrice ₺</h5>
                                         <h6>Stok: @p.UnitsInStock ADET!</h6>
                                         <h6></h6>
-                                        <a asp-action="AddToCart" asp-controller="Home" asp-route-id="@p.ProductId" class="btn btn-primary">Add to cart</a>
+                                        <a asp-action="AddTable" asp-controller="Home" asp-route-id="@p.ProductId" class="btn btn-primary">Masaya Ekle</a>
                                     </div>
                                 </div>
                             </div>

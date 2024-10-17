@@ -160,6 +160,12 @@ namespace HotCatCafe.MVC.Controllers
             return View();
         }
 
+
+        public IActionResult AddTable()
+        {
+            return View() ;
+        }
+
         public IActionResult TestMail()
         {
             EmailSender.SendEmail("zahide_16_5@hotmail.com", "Test Maili", "Bu bir test mailidir.");

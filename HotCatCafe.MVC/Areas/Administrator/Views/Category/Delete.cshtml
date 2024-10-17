@@ -1,0 +1,18 @@
+﻿@model HotCat.BLL.ViewModels.CategoryViewModels.CategoryViewModel
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<h1>Delete</h1>
+
+<form method="post">
+    <label asp-for="CategoryName"></label>
+    <input type="text" asp-for="CategoryName" />
+
+    <label asp-for="Id">Category Id</label>
+    <input type="number" asp-for="Id" />
+
+    <button type="submit">Sil </button>
+    <button type="submit">İptal </button>
+</form>
