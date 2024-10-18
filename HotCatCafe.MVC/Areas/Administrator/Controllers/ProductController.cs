@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace HotCatCafe.MVC.Areas.Administrator.Controllers
 {
     [Area("Administrator")]
-    [Authorize]
+    //[Authorize]
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
@@ -92,17 +92,19 @@ namespace HotCatCafe.MVC.Areas.Administrator.Controllers
 
                     var result = await _productService.CreateProductAsync(product);
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index");
                 }
-
-
-
             }
             else
             {
                 return View(productViewModel);
             }
         }
+
+        //public IActionResult Delete(int id)
+        //{
+        //    var product = 
+        //}
 
     }
 }

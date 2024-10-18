@@ -32,6 +32,8 @@ namespace HotCat.DAL.Configurations
                .WithMany(u => u.Orders)
                .HasForeignKey(o => o.AppUserId);
 
+            //builder.Property(x => x.TableId == )
+
 
 
 

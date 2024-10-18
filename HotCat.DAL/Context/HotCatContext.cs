@@ -30,6 +30,10 @@ namespace HotCat.DAL.Context
         //OrderDetail DbSet
         public DbSet<OrderDetail> OrderDetails { get; set; }
 
+        //Table DbSet
+
+        public DbSet<Table> Tables { get; set; }
+
         //Savechanges değişiklikleri kaydet demek. Burada kullanma amacımız da yapılan değişiklikleri veritabanına aktarmak.
         public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
         {
@@ -82,6 +86,8 @@ namespace HotCat.DAL.Context
             builder.ApplyConfiguration(new OrderConfiguration());
 
             builder.ApplyConfiguration(new OrderDetailConfiguration());
+
+            builder.ApplyConfiguration(new TableConfiguration());
 
 
             base.OnModelCreating(builder);
