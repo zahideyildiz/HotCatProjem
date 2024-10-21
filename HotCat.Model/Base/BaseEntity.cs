@@ -1,5 +1,6 @@
 ﻿using HotCat.Model.Enums;
 using HotCat.Model.Interfaces;
+using System.ComponentModel.DataAnnotations;
 
 namespace HotCat.Model.Base
 {
@@ -29,6 +30,7 @@ namespace HotCat.Model.Base
         public DateTime UpdatedDate { get; set; }
         public string? UpdatedComputerName { get; set; }
         public string? UpdatedIpAddress { get; set; }
+        [Display(Name = "Aktif")]
         public bool IsActive { get; set; }
         public DataStatus Status { get; set; }
     }

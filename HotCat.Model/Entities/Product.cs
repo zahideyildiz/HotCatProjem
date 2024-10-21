@@ -1,21 +1,22 @@
 ﻿using HotCat.Model.Base;
 using HotCat.Model.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace HotCat.Model.Entities
 {
     public class Product:BaseEntity
     {
+        [Display(Name = "Ürün Ad")]
         public string ProductName { get; set; }
-
+        [Display(Name = "Ürün Fiyat")]
         public decimal UnitPrice { get; set; }
-
+        [Display(Name = "Ürün Stok")]
         public short UnitsInStock { get; set; }
 
         public string ImagePath { get; set; } //görselin yolu
 
         public double Discount { get; set; } 
 
-        public ProductStatus Status { get; set; }
 
         // Mapping
 

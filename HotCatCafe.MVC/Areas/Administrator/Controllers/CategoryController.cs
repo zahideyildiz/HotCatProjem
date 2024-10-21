@@ -139,7 +139,7 @@ namespace HotCatCafe.MVC.Areas.Administrator.Controllers
 
         public IActionResult Active()
         {
-            var categories = _categoryService.GetActiveCategories().OrderByDescending(x => x.ID).Select(x => new CategoryViewModel
+            var categories = _categoryService.GetActiveCategories().OrderBy(x => x.ID).Select(x => new CategoryViewModel
             {
                 Id =x.ID,
                 CategoryName = x.CategoryName,
@@ -153,7 +153,7 @@ namespace HotCatCafe.MVC.Areas.Administrator.Controllers
 
         public IActionResult Passive()
         {
-            var categories = _categoryService.GetPassiveCategories().OrderByDescending(x => x.ID).Select(x => new CategoryViewModel
+            var categories = _categoryService.GetPassiveCategories().OrderBy(x => x.ID).Select(x => new CategoryViewModel
             {
                 Id = x.ID,
                 CategoryName = x.CategoryName,
@@ -165,6 +165,6 @@ namespace HotCatCafe.MVC.Areas.Administrator.Controllers
         }
 
 
-        //todo : 27 mayıs ilk ders kayıtından details ekle
+        
     }
 }

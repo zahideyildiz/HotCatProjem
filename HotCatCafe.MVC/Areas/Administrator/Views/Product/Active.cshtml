@@ -1,4 +1,4 @@
-﻿@model List<HotCat.BLL.ViewModels.CategoryViewModels.CategoryViewModel>
+﻿@model List<HotCat.BLL.ViewModels.ProductViewModels.ProductViewModel>
 @{
     ViewData["Title"] = "Active";
     Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
@@ -10,23 +10,31 @@
     <table class="table table-hover text-nowrap">
         <thead>
             <tr>
-                <th>#</th>
-                <th>Category Name</th>
-                <th>Description</th>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Unit Price</th>
+                <th>UnitsInStock</th>
                 <th>Status</th>
                 <th>Is Active</th>
                 <th></th>
-                <th><a href="/Administrator/Category/Index" class="btn btn-dark btn-md">Hepsi</a></th>
+                <th>
+                    <a href="/Administrator/Product/Index" class="btn btn-dark btn-md">Hepsi</a>
+                </th>
             </tr>
         </thead>
         <tbody>
 
-            @foreach (var item in Model)
+            @{
+                var sortedModel = Model.OrderBy(item => item.ProductId).ToList();
+            }
+
+            @foreach (var item in sortedModel)
             {
                 <tr>
-                    <td>@item.Id</td>
-                    <td>@item.CategoryName</td>
-                    <td>@item.Description</td>
+                    <td>@item.ProductId</td>
+                    <td>@item.ProductName</td>
+                    <td>@item.UnitPrice</td>
+                    <td>@item.UnitsInStock</td>
                     <td>
                         @switch (item.Status)
                         {
@@ -49,8 +57,8 @@
                         }
                     </td>
                     <td>
-                        <a href="~/Administrator/Category/Update/@item.Id" class="btn btn-success btn-sm">Update</a>
-                        <a href="~/Administrator/Category/Delete/@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="~/Administrator/Product/Update/@item.ProductId" class="btn btn-success btn-sm">Update</a>
+                        <a href="~/Administrator/Product/Delete/@item.ProductId" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
 

@@ -4,7 +4,7 @@
     Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
 }
 
-            <a class="btn btn-primary" asp-action="Create" asp-controller="Product">Yeni Ürün Ekle</a>
+            
             <table class="table table-hover">
                 <tr>
                     <th>Image</th>
@@ -14,6 +14,11 @@
                     <th>Stock</th>
                     <th>Status</th>
                     <th></th>
+                    <th>
+                        <a class="btn btn-primary" asp-action="Create" asp-controller="Product">Yeni Ürün Ekle</a>
+                        <a class="btn btn-primary" asp-action="Active" asp-controller="Product">Aktif Ürünler</a>
+                        <a class="btn btn-primary" asp-action="Passive" asp-controller="Product">Pasif Ürünler</a>
+                    </th>
                 </tr>
                 @foreach (var item in Model)
                 {
@@ -33,8 +38,6 @@
                         <td>@item.UnitPrice</td>
                         <td>@item.UnitsInStock</td>
                         <td>
-
-                        <td>
                                 @switch (item.Status)
                                 {
                                     case HotCat.Model.Enums.DataStatus.DELETED:
@@ -49,8 +52,8 @@
                                 }
                         </td>
                         <td>
-                            <a asp-action="Update" asp-controller="Product" asp-route-id="@item.ProductId">Update</a>
-                            <a asp-action="Delete" asp-area="Administrator" asp-controller="Product" asp-route-id="@item.ProductId">Delete</a>
+                            <a asp-action="Update" asp-controller="Product" asp-route-id="@item.ProductId" class="btn btn-primary">Update</a>
+                            <a asp-action="Delete" asp-area="Administrator" asp-controller="Product" asp-route-id="@item.ProductId" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 }

@@ -1,4 +1,4 @@
-﻿@model CategoryListViewModel
+﻿@model HotCat.Model.Entities.Product
 @{
     ViewData["Title"] = "Update";
     Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
@@ -7,23 +7,32 @@
 <h1>
     <center>Update</center>
 </h1>
+
 <section class="content">
     <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-primary">
                     <div class="card-header bg-dark mb-3">
-                        <h3 class="card-title">@Model.CategoryName</h3>
+                        <h3 class="card-title">@Model.ProductName</h3>
                     </div>
                     <form method="post">
                         <div class="card-body">
                             <div class="form-group">
-                                <label asp-for="CategoryName"></label>
-                                <input type="text" asp-for="CategoryName" class="form-control" />
+                                <label asp-for="ProductName"></label>
+                                <input type="text" asp-for="ProductName" class="form-control" />
                             </div>
                             <div class="form-group">
-                                <label asp-for="Description"></label>
-                                <input type="text" asp-for="Description" class="form-control" />
+                                <label asp-for="UnitPrice"></label>
+                                <input type="text" asp-for="UnitPrice" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="UnitsInStock"></label>
+                                <input type="text" asp-for="UnitsInStock" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ImagePath"></label>
+                                <input type="text" asp-for="ImagePath" class="form-control" />
                             </div>
                             <div class="form-group">
                                 <label asp-for="IsActive"></label>
@@ -45,6 +54,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 60vh; /* Tam sayfa yüksekliği */
+        height: 80vh; /* Tam sayfa yüksekliği */
     }
 </style>
+

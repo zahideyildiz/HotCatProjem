@@ -1,0 +1,21 @@
+﻿@model ProductViewModel
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdministratorLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+<table>
+    <tr>
+        <hp>ID: @Model.ProductId</hp>
+        <p>Name: @Model.ProductName</p>
+        <p>Price: @Model.UnitPrice</p>
+        <p>Stock: @Model.UnitsInStock</p>
+        <p>Image Path: @Model.ImagePath</p>
+        <p>Status: @Model.Status</p>
+        <p>IsActive: @Model.IsActive</p>
+    </tr>
+</table>
+
+
